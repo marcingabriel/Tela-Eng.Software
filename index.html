@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Sala de Laboratório</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        
+        #horariosContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px;
+            transition: background-color 0.3s;
+            flex: 1 1 calc(25% - 20px); /* Faz com que cada card tenha 25% da largura, com margens */
+            max-width: calc(25% - 20px);
+        }
+
+        .card:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .btn-reserv {
+            padding-top: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Reserva de Sala de Laboratório</h2>
+        <form action="#" method="post">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="lab">Laboratório:</label>
+            <select id="lab" name="lab" required>
+                <option value="" disabled selected>Selecione o laboratório</option>
+                <option value="lab1">Laboratório de Informatica 1 </option>
+                <option value="lab2">Laboratório de Informatica 2 </option>
+                <option value="lab3">Laboratório de Eng. Software </option>
+            </select>
+
+            <div class="container">
+                <h2>Horários Disponíveis</h2>
+                <div id="horariosContainer"></div>
+            </div>
+            
+            <div >
+                <button type="submit">Reservar Sala</button>
+            </div>
+          
+            
+            
+        </form>
+        <div class="btn-reserv" >
+            <button id="verReservasBtn" onclick="verReservas()">Ver Reservas</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para criar os cards com horários
+        function criarCards() {
+            const horarios = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
+            const container = document.getElementById('horariosContainer');
+
+            horarios.forEach(horario => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.textContent = `${horario}`;
+                container.appendChild(card);
+            });
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = criarCards;
+
+
+          // Função para redirecionar para a página de salas reservadas
+          function verReservas() {
+            window.location.href = 'minhas_reservas.html'; // Substitua com o nome correto da sua página de reservas
+        }
+    </script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Reservas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%; /* Garante que a largura seja 100% do espaço disponível */
+        }
+
+   
+
+        .sala {
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px;
+            max-width: 70%; /* Largura máxima dos cards */
+        }
+  
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Minhas Reservadas</h2>
+        <div id="salasReservadas"></div>
+    </div>
+
+    <script>
+        // Função para obter salas reservadas (pode ser conectada a um banco de dados ou outra fonte de dados)
+        function getSalasReservadas() {
+            // Simulação de dados - você deve substituir isso com a lógica real
+            return [
+                { sala: 'Laboratório 1', data: '2023-11-15', horario: '10:00' },
+                { sala: 'Laboratório 2', data: '2023-11-16', horario: '14:00' },
+                // Adicione mais itens conforme necessário
+            ];
+        }
+
+        // Função para criar os cards de salas reservadas
+        function criarCardsSalasReservadas() {
+            const salasReservadas = getSalasReservadas();
+            const container = document.getElementById('salasReservadas');
+
+            salasReservadas.forEach(reserva => {
+                const salaCard = document.createElement('div');
+                salaCard.classList.add('sala');
+                salaCard.innerHTML = `<p>Sala: ${reserva.sala}</p><p>Data: ${reserva.data}</p><p>Horário: ${reserva.horario}</p>`;
+                container.appendChild(salaCard);
+            });
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = criarCardsSalasReservadas;
+    </script>
+
+</body>
+</html>
