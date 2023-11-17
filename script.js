@@ -1,6 +1,10 @@
   // Lista para armazenar as reservas
-  var reservas = [];
+  let dadosArmazenados = localStorage.getItem('reservas');
+            
+  var reservas = JSON.parse(dadosArmazenados) || [];
   var hourSelected;
+
+
 
   function criarCards() {
     // Função para criar os cards com horários

@@ -42,6 +42,7 @@
         
     </style>
     <script src="script.js"></script>
+    
 </head>
 <body>
 
@@ -50,6 +51,7 @@
         <div id="salasReservadas"></div>
     </div>
 
+    <script src="moment.js"></script>
     <script>
         // Função para obter salas reservadas (pode ser conectada a um banco de dados ou outra fonte de dados)
         function getSalasReservadas() {
@@ -66,7 +68,7 @@
             salasReservadas.forEach(reserva => {
                 const salaCard = document.createElement('div');
                 salaCard.classList.add('sala');
-                salaCard.innerHTML = `<p>Sala: ${reserva.lab}</p><p>Data: ${reserva.data}</p><p>Horário: ${reserva.horarioSelecionado}</p>`;
+                salaCard.innerHTML = `<p>Sala: ${reserva.lab}</p><p>Data: ${moment(reserva.data).format("L")}</p><p>Horário: ${reserva.horarioSelecionado}</p>`;
                 container.appendChild(salaCard);
             });
         }
