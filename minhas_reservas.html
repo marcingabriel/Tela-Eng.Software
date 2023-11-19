@@ -69,7 +69,7 @@
             salasReservadas.forEach(reserva => {
                 const salaCard = document.createElement('div');
                 salaCard.classList.add('sala');
-                salaCard.innerHTML = `<p>Sala: ${reserva.lab}</p><p>Data: ${moment(reserva.data, "DD/MM/YYYY").format("L")}</p><p>Horário: ${reserva.horarioSelecionado}</p>`;
+                salaCard.innerHTML = `<p>Sala: ${reserva.lab}</p><p>Data: ${moment(reserva.data).format("L")}</p><p>Horário: ${reserva.horarioSelecionado}</p>`;
                 container.appendChild(salaCard);
             });
         }
