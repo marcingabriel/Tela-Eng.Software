@@ -71,16 +71,16 @@
     <script>
         // Função para obter salas reservadas (pode ser conectada a um banco de dados ou outra fonte de dados)
         function getSalasReservadas() {
-            // Simulação de dados - você deve substituir isso com a lógica real
-            let dadosArmazenados = localStorage.getItem('reservas');
-            return JSON.parse(dadosArmazenados);
+            let dadosArmazenados = JSON.parse(localStorage.getItem('reservas')) || [{lab: "Laboratorio Informatica 1", data: "16/11/23", horarioSelecionado:"09:00"}];
+            return dadosArmazenados;
+    
         }
 
         // Função para criar os cards de salas reservadas
         function criarCardsSalasReservadas() {
             const salasReservadas = getSalasReservadas();
             const container = document.getElementById('salasReservadas');
-
+            moment.locale("pt-br");
             salasReservadas.forEach(reserva => {
                 const salaCard = document.createElement('div');
                 salaCard.classList.add('sala');
